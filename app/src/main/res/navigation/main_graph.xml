@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/loginFragment"
+    maintainBackStack="true">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.comandas.ui.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_secondFragment"
+            app:destination="@id/secondFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="comandas://login" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.example.comandas.ui.fragments.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second">
+        <argument
+            android:name="nombre"
+            android:defaultValue="no_name"
+            app:argType="string"
+            app:nullable="true" />
+        <deepLink
+            android:id="@+id/deepLink3"
+            app:uri="comandas://menu/{menu_location}" />
+        <argument
+            android:name="menu_location"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.example.comandas.ui.fragments.details.FoodDetailsFragment"
+        android:label="fragment_food_details"
+        tools:layout="@layout/fragment_food_details">
+        <argument
+            android:name="foodNameDetails"
+            app:argType="string"
+            app:nullable="true" />
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="comandas://details/{foodNameDetails}/{foodPriceDetails}/{foodImgDetails}/{foodOverviewDetails}" />
+        <argument
+            android:name="foodPriceDetails"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="foodImgDetails"
+            app:argType="integer" />
+        <argument
+            android:name="foodOverviewDetails"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+</navigation>

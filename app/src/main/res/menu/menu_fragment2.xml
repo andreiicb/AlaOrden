@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/menu_selector"
+        android:title="Menu selector"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_3points">
+
+        <menu>
+
+            <item android:id="@+id/appetizer_menu"
+                android:title="Entradas"
+                app:showAsAction="never"/>
+
+            <item android:id="@+id/food_menu"
+                android:title="Comidas"
+                app:showAsAction="never"/>
+
+            <item android:id="@+id/drinks_menu"
+                android:title="Bebidas"
+                app:showAsAction="never"/>
+
+        </menu>
+    </item>
+
+</menu>
